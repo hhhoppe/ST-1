@@ -27,8 +27,8 @@ TEST(TestCheckPrime, TestOnNotPrimes) {
 }
 
 TEST(TestCheckPrime, TestOnLargePrimes) {
-    EXPECT_TRUE(checkPrime(7919));  // 1000-е простое
-    EXPECT_TRUE(checkPrime(104729));  // 10000-е простое
+    EXPECT_TRUE(checkPrime(7919));
+    EXPECT_TRUE(checkPrime(104729));
     EXPECT_FALSE(checkPrime(7920));
     EXPECT_FALSE(checkPrime(104730));
 }
@@ -87,24 +87,23 @@ TEST(TestNextPrime, TestLargeNumbers) {
 TEST(TestSumPrime, TestSmallBounds) {
     EXPECT_EQ(sumPrime(0), 0);
     EXPECT_EQ(sumPrime(1), 0);
-    EXPECT_EQ(sumPrime(2), 0);  // простых чисел < 2 нет
-    EXPECT_EQ(sumPrime(3), 2);  // 2
+    EXPECT_EQ(sumPrime(2), 0);
+    EXPECT_EQ(sumPrime(3), 2);
     EXPECT_EQ(sumPrime(4), 5);
-    // Исправляю: простые числа < 4: 2, 3. Сумма = 5
 }
 
 TEST(TestSumPrime, TestCorrected) {
-    EXPECT_EQ(sumPrime(4), 5);  // 2 + 3
-    EXPECT_EQ(sumPrime(5), 5);  // 2 + 3 (5 не входит, hbound не включается)
-    EXPECT_EQ(sumPrime(6), 10); // 2 + 3 + 5
-    EXPECT_EQ(sumPrime(7), 10); // 2 + 3 + 5
-    EXPECT_EQ(sumPrime(8), 17); // 2 + 3 + 5 + 7
+    EXPECT_EQ(sumPrime(4), 5);
+    EXPECT_EQ(sumPrime(5), 5);
+    EXPECT_EQ(sumPrime(6), 10);
+    EXPECT_EQ(sumPrime(7), 10);
+    EXPECT_EQ(sumPrime(8), 17);
 }
 
 TEST(TestSumPrime, TestLargerBounds) {
-    EXPECT_EQ(sumPrime(10), 17);  // 2+3+5+7
-    EXPECT_EQ(sumPrime(11), 17);  // 2+3+5+7 (11 не входит)
-    EXPECT_EQ(sumPrime(12), 28);  // 2+3+5+7+11
+    EXPECT_EQ(sumPrime(10), 17);
+    EXPECT_EQ(sumPrime(11), 17);
+    EXPECT_EQ(sumPrime(12), 28);
 }
 
 // ==================== ИТОГ: 15 ТЕСТОВ ====================
