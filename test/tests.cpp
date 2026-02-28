@@ -89,7 +89,7 @@ TEST(TestSumPrime, TestSmallBounds) {
     EXPECT_EQ(sumPrime(1), 0);
     EXPECT_EQ(sumPrime(2), 0);  // простых чисел < 2 нет
     EXPECT_EQ(sumPrime(3), 2);  // 2
-    EXPECT_EQ(sumPrime(4), 2);  // 2 + 3? нет, 3 < 4? да, 3 < 4, так что 2 + 3 = 5? Стоп, надо проверить
+    EXPECT_EQ(sumPrime(4), 2);
     // Исправляю: простые числа < 4: 2, 3. Сумма = 5
 }
 
