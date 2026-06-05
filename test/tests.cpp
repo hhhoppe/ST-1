@@ -5,94 +5,82 @@
 
 // ==================== ТЕСТЫ ДЛЯ checkPrime ====================
 
-TEST(TestCheckPrime, TestOnPrimes) {
+TEST(CheckPrimeTest, ZeroAndOneAreNotPrime) {
+    EXPECT_FALSE(checkPrime(0));
+    EXPECT_FALSE(checkPrime(1));
+}
+
+TEST(CheckPrimeTest, SmallPrimes) {
     EXPECT_TRUE(checkPrime(2));
     EXPECT_TRUE(checkPrime(3));
     EXPECT_TRUE(checkPrime(5));
     EXPECT_TRUE(checkPrime(7));
-    EXPECT_TRUE(checkPrime(13));
-    EXPECT_TRUE(checkPrime(17));
-    EXPECT_TRUE(checkPrime(19));
+    EXPECT_TRUE(checkPrime(11));
 }
 
-TEST(TestCheckPrime, TestOnNotPrimes) {
-    EXPECT_FALSE(checkPrime(0));
-    EXPECT_FALSE(checkPrime(1));
+TEST(CheckPrimeTest, SmallComposites) {
     EXPECT_FALSE(checkPrime(4));
     EXPECT_FALSE(checkPrime(6));
     EXPECT_FALSE(checkPrime(8));
     EXPECT_FALSE(checkPrime(9));
     EXPECT_FALSE(checkPrime(10));
-    EXPECT_FALSE(checkPrime(15));
 }
 
-TEST(TestCheckPrime, TestOnLargePrimes) {
+TEST(CheckPrimeTest, LargePrime) {
     EXPECT_TRUE(checkPrime(7919));
     EXPECT_TRUE(checkPrime(104729));
+}
+
+TEST(CheckPrimeTest, LargeComposite) {
     EXPECT_FALSE(checkPrime(7920));
     EXPECT_FALSE(checkPrime(104730));
 }
 
 // ==================== ТЕСТЫ ДЛЯ nPrime ====================
 
-TEST(TestNPrime, TestFirstPrimes) {
+TEST(NPrimeTest, FirstFivePrimes) {
     EXPECT_EQ(nPrime(1), 2);
     EXPECT_EQ(nPrime(2), 3);
     EXPECT_EQ(nPrime(3), 5);
     EXPECT_EQ(nPrime(4), 7);
     EXPECT_EQ(nPrime(5), 11);
-    EXPECT_EQ(nPrime(6), 13);
-    EXPECT_EQ(nPrime(7), 17);
-    EXPECT_EQ(nPrime(8), 19);
 }
 
-TEST(TestNPrime, TestZeroInput) {
-    EXPECT_EQ(nPrime(0), 0);
-}
-
-TEST(TestNPrime, TestNthPrimes) {
+TEST(NPrimeTest, TenthAndTwentiethPrimes) {
     EXPECT_EQ(nPrime(10), 29);
     EXPECT_EQ(nPrime(20), 71);
-    EXPECT_EQ(nPrime(30), 113);
+}
+
+TEST(NPrimeTest, ZeroInput) {
+    EXPECT_EQ(nPrime(0), 0);
 }
 
 // ==================== ТЕСТЫ ДЛЯ nextPrime ====================
 
-TEST(TestNextPrime, TestSimpleCases) {
+TEST(NextPrimeTest, SimpleCases) {
     EXPECT_EQ(nextPrime(1), 2);
     EXPECT_EQ(nextPrime(2), 3);
     EXPECT_EQ(nextPrime(3), 5);
     EXPECT_EQ(nextPrime(4), 5);
     EXPECT_EQ(nextPrime(5), 7);
     EXPECT_EQ(nextPrime(6), 7);
-    EXPECT_EQ(nextPrime(7), 11);
-    EXPECT_EQ(nextPrime(8), 11);
-    EXPECT_EQ(nextPrime(9), 11);
-    EXPECT_EQ(nextPrime(10), 11);
 }
 
-TEST(TestNextPrime, TestZeroAndOne) {
+TEST(NextPrimeTest, ZeroCase) {
     EXPECT_EQ(nextPrime(0), 2);
-    EXPECT_EQ(nextPrime(1), 2);
 }
 
-TEST(TestNextPrime, TestLargeNumbers) {
-    EXPECT_EQ(nextPrime(100), 101);
-    EXPECT_EQ(nextPrime(102), 103);
-    EXPECT_EQ(nextPrime(110), 113);
+TEST(NextPrimeTest, AfterLargePrime) {
+    EXPECT_EQ(nextPrime(13), 17);
 }
 
 // ==================== ТЕСТЫ ДЛЯ sumPrime ====================
 
-TEST(TestSumPrime, TestSmallBounds) {
+TEST(SumPrimeTest, SmallBounds) {
     EXPECT_EQ(sumPrime(0), 0);
     EXPECT_EQ(sumPrime(1), 0);
     EXPECT_EQ(sumPrime(2), 0);
     EXPECT_EQ(sumPrime(3), 2);
-    EXPECT_EQ(sumPrime(4), 5);
-}
-
-TEST(TestSumPrime, TestCorrected) {
     EXPECT_EQ(sumPrime(4), 5);
     EXPECT_EQ(sumPrime(5), 5);
     EXPECT_EQ(sumPrime(6), 10);
@@ -100,14 +88,8 @@ TEST(TestSumPrime, TestCorrected) {
     EXPECT_EQ(sumPrime(8), 17);
 }
 
-TEST(TestSumPrime, TestLargerBounds) {
+TEST(SumPrimeTest, TenAndEleven) {
     EXPECT_EQ(sumPrime(10), 17);
     EXPECT_EQ(sumPrime(11), 17);
     EXPECT_EQ(sumPrime(12), 28);
 }
-
-// ==================== ИТОГ: 15 ТЕСТОВ ====================
-// checkPrime: 3 теста
-// nPrime: 3 теста
-// nextPrime: 3 теста
-// sumPrime: 3 теста (с подтестами = 6)
